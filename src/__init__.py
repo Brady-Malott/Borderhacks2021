@@ -23,9 +23,8 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Matt has giant balls!'
+    # Define the blueprints
+    from . import form
+    app.register_blueprint(form.bp)
 
     return app
