@@ -4,16 +4,16 @@
 <form method="post" class="container">
   <p>Which Direction are you Headed?</p>
   <div>
-    <input type="radio" name="direction" id="towards" />
+    <input type="radio" name="direction" id="towards" value="towards" />
     <label for="towards">Towards Bridge</label>
   </div>
   <div>
-    <input type="radio" name="direction" id="from" />
+    <input type="radio" name="direction" id="from" value="from" />
     <label for="from">From Bridge</label>
   </div>
-  <p>Plese select date and time:</p>
+  <p>Please select date and time:</p>
 
-  <input id="date-picker" type="datetime-local" required />
+  <input id="date-picker" name="date" type="datetime-local" required />
   <input class="btn" type="submit" value="Submit" />
 </form>
 {% endblock %}

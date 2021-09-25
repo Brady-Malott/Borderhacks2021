@@ -7,18 +7,25 @@ bp = Blueprint('form', __name__, url_prefix='/')
 @bp.route('/', methods=('GET', 'POST'))
 def form():
     if request.method == 'POST':
-        # username = request.form['username']
-        # password = request.form['password']
+
         error = None
 
-        # if not username:
-        #     error = 'Username is required.'
-        # elif not password:
-        #     error = 'Password is required.'
+        direction_headed = request.form.get('direction')
+        travel_date = request.form.get('date')
+
+        if not direction_headed:
+            error = 'Please select the direction you are headed' 
+        elif not travel_date:
+            error = 'Please select a travel date and time'
 
         if error is None:
-            # Submit form data
-            pass
+            # Set the form data in the session so it can be accessed by visualizer view
+            session['direction_headed'] = direction_headed
+            session['travel_date'] = travel_date
+            # Clear any flash messages above the form
+            session.pop('_flashes', None)
+            # Redirect to the visualizer view
+            return redirect(url_for('visualizer.visualizer'))
 
         flash(error)
 

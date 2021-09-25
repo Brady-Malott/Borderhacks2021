@@ -25,6 +25,10 @@ body {
   width: 70%;
 }
 
+.flash {
+  text-align: center;
+}
+
 #visualizer-container {
   margin-top: 20px;
 }
