@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block header %}
 <h1>Welcome to Traffic Predictor</h1>
 {% endblock %} {% block content %}
+<div class="container">
 <form method="post">
 
   <p> Which Direction are you Headed?</p> <br>
@@ -14,4 +15,5 @@
   <input type="datetime-local" required /> <br>
   <input type="submit" value="Submit" />
 </form>
+</div>
 {% endblock %}

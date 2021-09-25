@@ -6,4 +6,18 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  color: darkslategrey;
+}
+
+h1 {
+  text-align: center;
+  color: darkslategrey;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  row-gap: 30px;
 }
