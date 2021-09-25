@@ -33,3 +33,11 @@ body {
   border: 1px solid black;
   width: fit-content;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  row-gap: 30px;
+}
