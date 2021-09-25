@@ -35,11 +35,13 @@ body {
 }
 
 .container {
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-content: center;
-  row-gap: 30px;
+  align-content: space-around;
+  padding: 15%;
+  border: 5px solid slategray
 }
 
 #visualizer-container {
