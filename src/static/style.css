@@ -4,6 +4,32 @@
   box-sizing: border-box;
 }
 
+:root {
+  --body-background: #f4f4f4;
+  --top-offset: 50px;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: var(--body-background);
+}
+
+.header-text {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.content {
+  margin: var(--top-offset) auto 0;
+  width: 70%;
+}
+
+#visualizer-container {
+  margin-top: 20px;
+}
+
+#map-container {
+  border: 1px solid black;
+  width: fit-content;
 }
