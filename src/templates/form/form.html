@@ -2,10 +2,16 @@
 <h1>{% block title %}Welcome to Traffic Predictor{% endblock %}</h1>
 {% endblock %} {% block content %}
 <form method="post">
-  <!-- <label for="username">Username</label>
-  <input name="username" id="username" required />
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" required /> -->
+
+  <p> Which Direction are you Headed?</p> <br>
+  <label for="towards">Towards Bridge</label>
+  <input type="radio" name="direction" id="towards" /><br>
+  <label for="from">From Bridge</label>
+  <input type="radio" name="direction" id="from" /><br>
+
+  <p> Plese select date and time: </p> <br>
+
+  <input type="datetime-local" required /> <br>
   <input type="submit" value="Go" />
 </form>
 {% endblock %}
