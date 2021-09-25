@@ -41,3 +41,12 @@ body {
   align-content: center;
   row-gap: 30px;
 }
+
+#visualizer-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+#map-container {
+  border: 1px solid black;
+}

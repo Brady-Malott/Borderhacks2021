@@ -24,7 +24,8 @@ def create_app(test_config=None):
         pass
 
     # Define the blueprints
-    from . import form
+    from . import (form, visualizer)
     app.register_blueprint(form.bp)
+    app.register_blueprint(visualizer.bp)
 
     return app
