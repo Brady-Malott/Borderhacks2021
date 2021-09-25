@@ -2,16 +2,18 @@
 <h1>Welcome to Traffic Predictor</h1>
 {% endblock %} {% block content %}
 <form method="post" class="container">
+  <p>Which Direction are you Headed?</p>
+  <div>
+    <input type="radio" name="direction" id="towards" />
+    <label for="towards">Towards Bridge</label>
+  </div>
+  <div>
+    <input type="radio" name="direction" id="from" />
+    <label for="from">From Bridge</label>
+  </div>
+  <p>Plese select date and time:</p>
 
-  <p> Which Direction are you Headed?</p>
-  <label for="towards">Towards Bridge</label>
-  <input type="radio" name="direction" id="towards" />
-  <label for="from">From Bridge</label>
-  <input type="radio" name="direction" id="from" />
-
-  <p> Plese select date and time: </p>
-
-  <input type="datetime-local" required />
-  <input type="submit" value="Submit" />
+  <input id="date-picker" type="datetime-local" required />
+  <input class="btn" type="submit" value="Submit" />
 </form>
 {% endblock %}

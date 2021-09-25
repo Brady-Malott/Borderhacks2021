@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <title>Traffic Predictor</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"
+  rel="stylesheet"
+/>
 <section class="content">
   <header class="header-text">{% block header %}{% endblock %}</header>
   {% for message in get_flashed_messages() %}
