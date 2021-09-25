@@ -3,9 +3,9 @@ import warnings
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import pandas
 
-LIGHT_SCORE = 1
-SINGLE_UNIT_SCORE = 2
-BUS_SCORE = 3
+LIGHT_SCORE = 1  # light, motorcycle
+SINGLE_UNIT_SCORE = 2  # single unit
+BUS_SCORE = 3  # bus, articulated truck
 
 warnings.simplefilter('ignore', InsecureRequestWarning)  # ignore that stupid stinky smelling warning
 
@@ -30,6 +30,21 @@ response = requests.get(link, verify=False)
 temp_response = response.json()
 
 print(f"This is the data for {temp_response['intersectionDescription']}:")
+
+
+def set_date_time(_year, _month, _day, _start_hour, _start_minute, _end_hour, _end_minute):
+    year = _year
+    month = _month
+    day = _day
+    start_hour = _start_hour
+    start_minute = _start_minute
+    end_hour = _end_hour
+    end_minute = _end_minute
+
+
+def _get_traffic_score(intersection_id):
+
+
 
 for value in temp_response["traffic"]:
     entrance = value['entrance']
