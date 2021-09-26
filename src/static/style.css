@@ -6,7 +6,14 @@
 
 :root {
   --body-background: #f4f4f4;
-  --top-offset: 50px;
+  --top-offset: 50px; 
+}
+
+:root.stage10 {
+  --shape-color: #ff4d4d;
+}
+:root.stage9 {
+  --shape-color: #ff794d;
 }
 
 body {
@@ -87,6 +94,7 @@ body {
 }
 
 #to-1 {
+  background-color: var(--shape-color);
   height: 50px;
   bottom: 1px;
   right: 125px;
@@ -94,6 +102,7 @@ body {
 }
 
 #to-2 {
+  background-color: var(--shape-color);
   height: 400px;
   bottom: 64px;
   right: 229px;
@@ -122,6 +131,7 @@ body {
 }
 
 #from-3 {
+  color: var(--int3-col);
   height: 400px;
   top: 305px;
   left: 312px;
