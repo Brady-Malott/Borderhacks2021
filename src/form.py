@@ -44,5 +44,5 @@ def form():
 
         # Else, flash the error above the form and stay on this page
         flash(error)
-
-    return render_template('form/form.html')
+    else:
+        return render_template('form/form.html')
