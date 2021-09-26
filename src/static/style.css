@@ -53,6 +53,7 @@ body {
 #visualizer-container {
   display: flex;
   margin-top: 20px;
+  justify-content: space-between;
 }
 
 #map-container {
@@ -157,4 +158,8 @@ body {
 }
 .interval-0 {
   background-color: #4dff79 !important;
+}
+
+#pie-chart {
+  width: 700px;
 }

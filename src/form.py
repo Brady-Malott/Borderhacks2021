@@ -1,6 +1,7 @@
 from flask import (
   Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
+from matplotlib import pyplot as plt
 
 # This was how we got importing the data module to work, don't change this
 import sys, os
@@ -37,8 +38,9 @@ def form():
 
             # Store the data for the visualizer view in session
             session['intersection_scores'] = results['intersection_scores']
-            session['vehicle_counts'] = results['vehicle_counts']
             session['to_flag'] = direction_headed == 'N'
+
+            _create_pie_chart(results['vehicle_counts'])
 
             # Redirect to the visualizer view
             return redirect(url_for('visualizer.visualizer'))
@@ -47,3 +49,20 @@ def form():
         flash(error)
     else:
         return render_template('form/form.html')
+
+def _create_pie_chart(vehicle_counts):
+    # Creating dataset
+    labels = []
+    values = []
+    for vehicle_type, quantity in vehicle_counts.items():
+        if quantity > 0:
+            labels.append(vehicle_type)
+            values.append(quantity)
+        
+        # Creating plot
+        fig = plt.figure(figsize =(15, 15))
+        plt.pie(values, startangle=90)
+        plt.legend(labels, loc='upper right', fontsize='xx-large')
+        
+        # Save the image to the static folder before being redirected to the visualizer view
+        plt.savefig('src/static/pie_chart.png')
