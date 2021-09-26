@@ -12,3 +12,7 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+<<<<<<< HEAD
+=======
+*pie_chart.png
+>>>>>>> 12ad50b981725d0c4a10d998bf314caa2c583f36
