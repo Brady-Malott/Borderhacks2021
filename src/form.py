@@ -40,7 +40,7 @@ def form():
             session['intersection_scores'] = results['intersection_scores']
             session['to_flag'] = direction_headed == 'N'
 
-            _create_pie_chart(results['vehicle_counts'])
+            # _create_pie_chart(results['vehicle_counts'])
 
             # Redirect to the visualizer view
             return redirect(url_for('visualizer.visualizer'))
