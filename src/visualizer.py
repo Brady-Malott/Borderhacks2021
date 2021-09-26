@@ -11,8 +11,6 @@ def visualizer():
         interval = _get_interval(score)
         intervals_str += f'interval-{interval}'
 
-    print(session['vehicle_counts'])
-
     return render_template('visualizer/visualizer.html', intervals=intervals_str, to_flag=session['to_flag'])
 
 def _get_interval(score):
