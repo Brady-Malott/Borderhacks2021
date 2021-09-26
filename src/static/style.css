@@ -6,7 +6,7 @@
 
 :root {
   --body-background: #f4f4f4;
-  --top-offset: 50px;
+  --top-offset: 20px;
 }
 
 body {
@@ -15,9 +15,13 @@ body {
   background-color: var(--body-background);
 }
 
+.my-30 {
+  margin: 30px 0;
+}
+
 .header-text {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .content {
@@ -27,6 +31,10 @@ body {
 
 .flash {
   text-align: center;
+}
+
+.visualizer-desc {
+  font-size: 1.4rem;
 }
 
 #visualizer-container {

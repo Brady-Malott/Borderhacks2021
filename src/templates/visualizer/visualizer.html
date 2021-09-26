@@ -1,5 +1,12 @@
 {% extends 'base.html' %} {% block header %}
 <h1>Behold, your traffic visualization!</h1>
+<p class="visualizer-desc">
+  The map on the left illustrates the level of traffic congestion, and the pie
+  chart shows the distribution of different vehicle types.
+</p>
+<p class="visualizer-desc">
+  Both sides only consider traffic in the direction chosen previously.
+</p>
 {% endblock %} {% block content %}
 <div id="visualizer-container">
   <div id="map-container">
