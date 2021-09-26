@@ -90,6 +90,7 @@ def _get_traffic_score (direction_headed, date):
     # Calculate the traffic score for each intersection, and append each score to the intersection_scores list
     i = 1
     for intersection_data in traffic_data:
+        # Calculate the score for this intersection, and add it to the list
         traffic_score = _calculate_intersection_traffic_score(intersection_data, direction_headed)
         intersection_scores.append(traffic_score)
         i += 1

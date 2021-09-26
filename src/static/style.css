@@ -87,10 +87,10 @@ body {
 }
 
 #to-1 {
-  height: 50px;
-  bottom: 1px;
-  right: 125px;
-  transform: rotate(-22deg);
+  height: 245px;
+  bottom: 457px;
+  right: 372px;
+  transform: rotate(-23deg);
 }
 
 #to-2 {
@@ -101,10 +101,10 @@ body {
 }
 
 #to-3 {
-  height: 245px;
-  bottom: 457px;
-  right: 372px;
-  transform: rotate(-23deg);
+  height: 50px;
+  bottom: 1px;
+  right: 125px;
+  transform: rotate(-22deg);
 }
 
 #from-1 {
