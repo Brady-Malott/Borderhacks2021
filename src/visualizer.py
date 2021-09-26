@@ -1,11 +1,14 @@
 from flask import (
-  Blueprint, flash, g, redirect, render_template, request, session, url_for, current_app
+  Blueprint, redirect, render_template, request, session, url_for
 )
 
 bp = Blueprint('visualizer', __name__, url_prefix='/visualizer')
 
-@bp.route('/', methods=['GET'])
+@bp.route('/', methods=('GET', 'POST'))
 def visualizer():
+    if request.method == 'POST':
+      return redirect(url_for('form.form'))
+        
     intervals_str = ''
     for score in session['intersection_scores']:
         interval = _get_interval(score)

@@ -171,3 +171,9 @@ body {
 #pie-chart {
   width: 700px;
 }
+
+#back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
