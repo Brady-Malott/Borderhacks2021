@@ -23,8 +23,6 @@ def form():
         elif not travel_date:
             error = 'Please select a travel date and time'
 
-        flash('A')
-
         # If the form is validated, get the traffic scores and set them in the session object
         if error is None:
             
@@ -34,15 +32,15 @@ def form():
             # Clear any flash messages above the form
             session.pop('_flashes', None)
 
-            # Get the traffic data for the 3 intersections
-            session['intersection_scores'] = data._get_traffic_score(direction_headed, travel_date)
+            # Get the traffic data
+            results = data._get_traffic_data_results(direction_headed, travel_date)
+            session['intersection_scores'] = results['intersection_scores']
             session['to_flag'] = direction_headed == 'N'
-            flash('B')
 
             # Redirect to the visualizer view
-            # return redirect(url_for('visualizer.visualizer'))
+            return redirect(url_for('visualizer.visualizer'))
 
         # Else, flash the error above the form and stay on this page
-        # flash(error)
+        flash(error)
     else:
         return render_template('form/form.html')
