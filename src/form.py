@@ -51,18 +51,31 @@ def form():
         return render_template('form/form.html')
 
 def _create_pie_chart(vehicle_counts):
+
+    colors_dict = {
+        'Bicycle': 'red',
+        'MotorizedVehicle': 'purple',
+        'Light': 'blue',
+        'WorkVan': 'grey',
+        'SingleUnitTruck': 'green',
+        'Bus': 'yellow',
+        'ArticulatedTruck': 'orange'
+    }
+
     # Creating dataset
     labels = []
     values = []
+    colors = []
     for vehicle_type, quantity in vehicle_counts.items():
         if quantity > 0:
             labels.append(vehicle_type)
             values.append(quantity)
+            colors.append(colors_dict[vehicle_type])
         
         # Creating plot
         fig = plt.figure(figsize =(15, 15))
-        plt.pie(values, startangle=90)
+        plt.pie(values, colors=colors, startangle=90)
         plt.legend(labels, loc='upper right', fontsize='xx-large')
         
         # Save the image to the static folder before being redirected to the visualizer view
-        plt.savefig('src/static/pie_chart.png')
+        plt.savefig('src/static/pie_chart.png', facecolor='#f4f4f4')
