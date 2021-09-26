@@ -40,7 +40,7 @@ body {
 
 .container {
   margin: 20px auto 0;
-  width: 500px;
+  width: 530px;
   row-gap: 10px;
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ body {
   background-color: #ff4d4d !important;
 }
 .interval-2 {
-  background-color: #ff794d!important;
+  background-color: #ff794d !important;
 }
 .interval-3 {
   background-color: #ffa64d !important;
@@ -141,20 +141,20 @@ body {
   background-color: #ffd24d !important;
 }
 .interval-5 {
-  background-color: #ffff4d!important;
+  background-color: #ffff4d !important;
 }
 .interval-6 {
-  background-color: #d2ff4d  !important;
+  background-color: #d2ff4d !important;
 }
 .interval-7 {
-  background-color: #a6ff4d!important;
+  background-color: #a6ff4d !important;
 }
 .interval-8 {
   background-color: #79ff4d !important;
 }
 .interval-9 {
-  background-color: #4dff4d!important;
+  background-color: #4dff4d !important;
 }
 .interval-0 {
-  background-color: #4dff79!important;
+  background-color: #4dff79 !important;
 }

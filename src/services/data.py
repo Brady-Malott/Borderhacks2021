@@ -12,12 +12,9 @@ ARTICILATED_TRUCKS = 5
 
 warnings.simplefilter('ignore', InsecureRequestWarning)  # ignore that stupid stinky smelling warning
 
-
-to_bridge = True
-bridge_dir = 'N'
-
-#Calculating the traffic score function
 def traffic_score_calc(vehicle, quantity):
+    """Takes in a vehicle type and quantity, and returns the corresponding traffic score"""
+
     if vehicle == 'Bicycle':
         return (BICYCLE_SCORE * quantity)
     if vehicle == 'MotorizedVehicle':
@@ -35,20 +32,19 @@ def traffic_score_calc(vehicle, quantity):
     else:   
         print(f'!!!vehicleType: {vehicle} was not listed!!!')
 
-# RETRIEVE FORM INFORMATION + PROCESSING 
-
-from flask import Flask, request, render_template 
-app = Flask(__name__)
-
-# Utility function for fixing # hours/minutes < 10
-# eg: Start time for 3:05 is 03:05
 def _get_formatted_time_string(time):
+    """
+    Utility function for fixing # hours/minutes < 10
+    e.g. If hours are 3 and minutes are 5, call this function twice to get "03" and "05".
+    Otherwise, the finalized time string will be "3:5" instead of "03:05"
+    """
+
     if time < 10:
         return f"0{time}"
     return f"{time}"
 
-
 def _query_traffic_data(year, month, day, start_hour, start_minute):
+    """Takes in the query date and time and queries the traffic data API"""
 
     # First, setup the start and end minutes (10 minutes apart) 
     end_minute = None
@@ -78,6 +74,7 @@ def _query_traffic_data(year, month, day, start_hour, start_minute):
     return traffic_data
 
 def _get_traffic_score (direction_headed, date):
+    """Entry point called from form.py. Takes in the direction and date, and returns the traffic score at each intersection"""
 
     date = datetime.fromisoformat(date)
     year = date.year
@@ -86,31 +83,37 @@ def _get_traffic_score (direction_headed, date):
     hour = date.hour
     minute = date.minute
 
+    # traffic_data is a list of 3 lists: 1 list for the traffic records at each intersection
     traffic_data = _query_traffic_data(year, month, day, hour, minute)
 
     intersection_scores = []
-    # Get the traffic score for each intersection, and append each score to the intersection_scores list
+    # Calculate the traffic score for each intersection, and append each score to the intersection_scores list
     i = 1
     for intersection_data in traffic_data:
-        traffic_score = _get_intersection_traffic_score(intersection_data, direction_headed)
+        traffic_score = _calculate_intersection_traffic_score(intersection_data, direction_headed)
         intersection_scores.append(traffic_score)
         i += 1
         
     return intersection_scores
 
-def _get_intersection_traffic_score(intersection_data, direction_headed):
+def _calculate_intersection_traffic_score(intersection_data, direction_headed):
+    """Takes in the traffic data for an intersection and calculates its score"""
+
     traffic_score = 0
 
+    # intersection_data is a list of the traffic entries
     for item in intersection_data:
         # Vehicle information
         exit_direction = item['exit']
         vehicle_type = item['vehicleType']
         qty = item['qty']
         
+        # If the vehicle is in the same direction as where the user is headed, add to the total traffic score
         if exit_direction == direction_headed:
             traffic_score += traffic_score_calc(vehicle_type, qty)     
         
     return traffic_score
 
-
-print(_get_traffic_score("N", '2021-09-23T17:30:00'))
+# For testing from the command line
+if __name__ == "__main__":
+    print(_get_traffic_score("N", '2021-09-23T17:30:00'))

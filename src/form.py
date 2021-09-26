@@ -12,9 +12,9 @@ bp = Blueprint('form', __name__, url_prefix='/')
 @bp.route('/', methods=('GET', 'POST'))
 def form():
     if request.method == 'POST':
-
         error = None
 
+        # Form validation
         direction = request.form.get('direction')
         travel_date = request.form.get('date')
 
@@ -23,14 +23,11 @@ def form():
         elif not travel_date:
             error = 'Please select a travel date and time'
 
+        # If the form is validated, get the traffic scores and set them in the session object
         if error is None:
             
             # First, change the direction string from (towards / from) to (N / S)
             direction_headed = 'N' if direction == 'towards' else 'S'
-
-            # Set the form data in the session so it can be accessed by visualizer view
-            # session['direction_headed'] = direction_headed
-            # session['travel_date'] = travel_date
 
             # Clear any flash messages above the form
             session.pop('_flashes', None)
@@ -42,6 +39,7 @@ def form():
             # Redirect to the visualizer view
             return redirect(url_for('visualizer.visualizer'))
 
+        # Else, flash the error above the form and stay on this page
         flash(error)
 
     return render_template('form/form.html')
