@@ -1,8 +1,7 @@
-from typing import Match
 import requests
 import warnings
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
-from datetime import datetime, time, date
+from datetime import datetime
 
 BICYCLE_SCORE = 1
 MOTORIZED_VEHICLE_SCORE = 1
@@ -161,7 +160,3 @@ def _calculate_intersection_traffic_score(intersection_data, direction_headed):
             traffic_score += traffic_score_calc(vehicle_type, qty)     
         
     return traffic_score
-
-# For testing from the command line
-if __name__ == "__main__":
-   print(_get_traffic_data_results("N", '2021-09-23T17:30:00'))
