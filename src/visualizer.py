@@ -6,6 +6,7 @@ bp = Blueprint('visualizer', __name__, url_prefix='/visualizer')
 
 @bp.route('/', methods=['GET'])
 def visualizer():
+    flash('A')
     print('Visualizer - The traffic scores are:')
     for score in session['intersection_scores']:
         print(score)
