@@ -4,10 +4,11 @@ from flask import (
 
 bp = Blueprint('visualizer', __name__, url_prefix='/visualizer')
 
+
 @bp.route('/', methods=('GET', 'POST'))
 def visualizer():
     if request.method == 'POST':
-      return redirect(url_for('form.form'))
+        return redirect(url_for('form.form'))
         
     intervals_str = ''
     for score in session['intersection_scores']:
@@ -15,6 +16,7 @@ def visualizer():
         intervals_str += f'interval-{interval}'
 
     return render_template('visualizer/visualizer.html', intervals=intervals_str, to_flag=session['to_flag'])
+
 
 def _get_interval(score):
     if score < 150:
