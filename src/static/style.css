@@ -7,6 +7,7 @@
 :root {
   --body-background: #f4f4f4;
   --top-offset: 50px; 
+  --shape-color: lime;
 }
 
 :root.stage10 {
@@ -14,6 +15,15 @@
 }
 :root.stage9 {
   --shape-color: #ff794d;
+}
+:root.stage8 {
+  --shape-color: #ffa64d;
+}
+:root.stage7 {
+  --shape-color: #ffd24d;
+}
+:root.stage6 {
+  --shape-color: #ffff4d;
 }
 
 body {
@@ -110,6 +120,7 @@ body {
 }
 
 #to-3 {
+  background-color: var(--shape-color);
   height: 245px;
   bottom: 457px;
   right: 372px;
@@ -117,6 +128,7 @@ body {
 }
 
 #from-1 {
+  background-color: var(--shape-color);
   height: 50px;
   top: 3px;
   left: 98px;
@@ -124,6 +136,7 @@ body {
 }
 
 #from-2 {
+  background-color: var(--shape-color);
   height: 245px;
   top: 65px;
   left: 169px;
@@ -131,7 +144,7 @@ body {
 }
 
 #from-3 {
-  color: var(--int3-col);
+  background-color: var(--shape-color);
   height: 400px;
   top: 305px;
   left: 312px;
