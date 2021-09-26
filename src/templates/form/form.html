@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block header %}
 <h1>Welcome to Traffic Predictor</h1>
 {% endblock %} {% block content %}
-<form method="post" class="container">
+<form action="/post_field" method="post" class="container">
   <p>Which Direction are you Headed?</p>
   <div>
     <input type="radio" name="direction" id="towards" value="towards" />

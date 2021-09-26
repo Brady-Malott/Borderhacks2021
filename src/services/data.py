@@ -31,8 +31,17 @@ def traffic_score_calc(vehicle, quantity):
     else:   
         print(f'!!!vehicleType: {vehicle} was not listed!!!')
 
+# RETRIEVE FORM INFORMATION + PROCESSING 
+
+from flask import Flask, request, render_template 
+app = Flask(__name__)
+
 def _set_date_and_time():
     #Variables for time the api request
+    form_info = dict
+    @app.route('/form_input', methods=['GET','POST'])
+    def form_in():
+        form_info = request.form["/post_field"]
     year = 2021
     month = 9
     day = 24
@@ -44,7 +53,7 @@ def _set_date_and_time():
         end_minute = start_minute + 10
     else: 
         end_minute, start_minute = start_minute, start_minute - 10
-        
+
     link = f"https://opendata.citywindsor.ca/api/traffic?date={year}-{month}-{day}&intersectionId={intersectionId}&start_time={start_hour}%3A{start_minute}&end_time={end_hour}%3A{end_minute}"
     response = requests.get(link, verify=False)
     temp_response = response.json()
