@@ -44,8 +44,7 @@ def _set_date_and_time():
         end_minute = start_minute + 10
     else: 
         end_minute, start_minute = start_minute, start_minute - 10
-    
-    end_minute = 35
+        
     link = f"https://opendata.citywindsor.ca/api/traffic?date={year}-{month}-{day}&intersectionId={intersectionId}&start_time={start_hour}%3A{start_minute}&end_time={end_hour}%3A{end_minute}"
     response = requests.get(link, verify=False)
     temp_response = response.json()
