@@ -7,23 +7,6 @@
 :root {
   --body-background: #f4f4f4;
   --top-offset: 50px;
-  --shape-color: lime;
-}
-
-:root.stage10 {
-  --shape-color: #ff4d4d;
-}
-:root.stage9 {
-  --shape-color: #ff794d;
-}
-:root.stage8 {
-  --shape-color: #ffa64d;
-}
-:root.stage7 {
-  --shape-color: #ffd24d;
-}
-:root.stage6 {
-  --shape-color: #ffff4d;
 }
 
 body {
@@ -104,7 +87,6 @@ body {
 }
 
 #to-1 {
-  background-color: var(--shape-color);
   height: 50px;
   bottom: 1px;
   right: 125px;
@@ -112,7 +94,6 @@ body {
 }
 
 #to-2 {
-  background-color: var(--shape-color);
   height: 400px;
   bottom: 64px;
   right: 229px;
@@ -120,7 +101,6 @@ body {
 }
 
 #to-3 {
-  background-color: var(--shape-color);
   height: 245px;
   bottom: 457px;
   right: 372px;
@@ -128,7 +108,6 @@ body {
 }
 
 #from-1 {
-  background-color: var(--shape-color);
   height: 50px;
   top: 3px;
   left: 98px;
@@ -136,7 +115,6 @@ body {
 }
 
 #from-2 {
-  background-color: var(--shape-color);
   height: 245px;
   top: 65px;
   left: 169px;
@@ -144,7 +122,6 @@ body {
 }
 
 #from-3 {
-  background-color: var(--shape-color);
   height: 400px;
   top: 305px;
   left: 312px;
@@ -152,25 +129,32 @@ body {
 }
 
 .interval-1 {
-  background-color: red !important;
+  background-color: #ff4d4d !important;
 }
-
 .interval-2 {
-  background-color: purple !important;
+  background-color: #ff794d!important;
 }
-
 .interval-3 {
-  background-color: cyan !important;
+  background-color: #ffa64d !important;
 }
-
 .interval-4 {
-  background-color: black !important;
+  background-color: #ffd24d !important;
 }
-
 .interval-5 {
-  background-color: orange !important;
+  background-color: #ffff4d!important;
 }
-
 .interval-6 {
-  background-color: yellowgreen !important;
+  background-color: #d2ff4d  !important;
+}
+.interval-7 {
+  background-color: #a6ff4d!important;
+}
+.interval-8 {
+  background-color: #79ff4d !important;
+}
+.interval-9 {
+  background-color: #4dff4d!important;
+}
+.interval-0 {
+  background-color: #4dff79!important;
 }
