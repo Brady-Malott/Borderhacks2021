@@ -91,19 +91,24 @@ def _get_traffic_data_results(direction_headed, date):
     traffic_data = _query_traffic_data(year, month, day, hour, minute)
 
     intersection_scores = []
+    vehicle_counts = {}
     # Calculate the traffic score for each intersection, and append each score to the intersection_scores list
-    i = 1
     for intersection_data in traffic_data:
         # Calculate the score for this intersection, and add it to the list
         traffic_score = _calculate_intersection_traffic_score(intersection_data, direction_headed)
         intersection_scores.append(traffic_score)
-        i += 1
+        _add_to_vehicle_counts(intersection_data, direction_headed, vehicle_counts)
         
     results['intersection_scores'] = intersection_scores
 
     # THEN: Add any other analytics data to the results dict (to be shown on the right side of the visualizer view)
 
     return results
+
+def _add_to_vehicle_counts(intersection_data, direction_headed, vehicle_counts):
+    for item in intersection_data:
+        # Get the car type ONLY if it is heading in the same direction. Add it to the dictionary
+        pass
 
 def _calculate_intersection_traffic_score(intersection_data, direction_headed):
     """Takes in the traffic data for an intersection and calculates its score"""
