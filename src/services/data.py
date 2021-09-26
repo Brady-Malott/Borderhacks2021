@@ -100,11 +100,12 @@ def _get_traffic_data_results(direction_headed, date):
         # Calculate the score for this intersection, and add it to the list
         traffic_score = _calculate_intersection_traffic_score(intersection_data, direction_headed)
         intersection_scores.append(traffic_score)
+        # Also count the number of each vehicle type at this intersection, and add it to a running total
         _add_to_vehicle_counts(intersection_data, direction_headed, vehicle_counts)
-        print(vehicle_counts)
     results['intersection_scores'] = intersection_scores
 
     # THEN: Add any other analytics data to the results dict (to be shown on the right side of the visualizer view)
+    results['vehicle_counts'] = vehicle_counts
 
     return results
 
@@ -142,8 +143,6 @@ def _add_to_vehicle_counts(intersection_data, direction_headed, vehicle_counts):
                 quantity = vehicle_counts['ArticulatedTruck']
                 quantity += item['qty']
                 vehicle_counts.update({"ArticulatedTruck" : quantity})
-        return vehicle_counts
-        pass
 
 def _calculate_intersection_traffic_score(intersection_data, direction_headed):
     """Takes in the traffic data for an intersection and calculates its score"""

@@ -6,16 +6,12 @@ bp = Blueprint('visualizer', __name__, url_prefix='/visualizer')
 
 @bp.route('/', methods=['GET'])
 def visualizer():
-    flash('C')
-    print('Visualizer - The traffic scores are:')
-    for score in session['intersection_scores']:
-        print(score)
-    print(f'Direction: {"to" if session["to_flag"] else "from"} the bridge')
-
     intervals_str = ''
     for score in session['intersection_scores']:
         interval = _get_interval(score)
         intervals_str += f'interval-{interval}'
+
+    print(session['vehicle_counts'])
 
     return render_template('visualizer/visualizer.html', intervals=intervals_str, to_flag=session['to_flag'])
 

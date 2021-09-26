@@ -34,7 +34,10 @@ def form():
 
             # Get the traffic data
             results = data._get_traffic_data_results(direction_headed, travel_date)
+
+            # Store the data for the visualizer view in session
             session['intersection_scores'] = results['intersection_scores']
+            session['vehicle_counts'] = results['vehicle_counts']
             session['to_flag'] = direction_headed == 'N'
 
             # Redirect to the visualizer view
