@@ -40,7 +40,7 @@ def form():
             flash('B')
 
             # Redirect to the visualizer view
-            return redirect(url_for('visualizer.visualizer'))
+            # return redirect(url_for('visualizer.visualizer'))
 
         # Else, flash the error above the form and stay on this page
         flash(error)
