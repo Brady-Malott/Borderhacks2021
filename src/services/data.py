@@ -73,8 +73,8 @@ def _query_traffic_data(year, month, day, start_hour, start_minute):
     
     return traffic_data
 
-def _get_traffic_score (direction_headed, date):
-    """Entry point called from form.py. Takes in the direction and date, and returns the traffic score at each intersection"""
+def _get_traffic_data_results(direction_headed, date):
+    """Entry point called from form.py. Takes in the direction and date, and returns the traffic score at each intersection and some other info"""
 
     date = datetime.fromisoformat(date)
     year = date.year
@@ -82,6 +82,10 @@ def _get_traffic_score (direction_headed, date):
     day = date.day
     hour = date.hour
     minute = date.minute
+
+    results = {}
+
+    # FIRST: Get the intersection traffic scores and add to the results dictionary
 
     # traffic_data is a list of 3 lists: 1 list for the traffic records at each intersection
     traffic_data = _query_traffic_data(year, month, day, hour, minute)
@@ -95,7 +99,11 @@ def _get_traffic_score (direction_headed, date):
         intersection_scores.append(traffic_score)
         i += 1
         
-    return intersection_scores
+    results['intersection_scores'] = intersection_scores
+
+    # THEN: Add any other analytics data to the results dict (to be shown on the right side of the visualizer view)
+
+    return results
 
 def _calculate_intersection_traffic_score(intersection_data, direction_headed):
     """Takes in the traffic data for an intersection and calculates its score"""
