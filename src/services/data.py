@@ -85,10 +85,8 @@ def _get_traffic_score (direction_headed, date):
     day = date.day
     hour = date.hour
     minute = date.minute
-    print(year, month, day, hour, minute)
 
     traffic_data = _query_traffic_data(year, month, day, hour, minute)
-    print(traffic_data)
 
     intersection_scores = []
     # Get the traffic score for each intersection, and append each score to the intersection_scores list
@@ -96,7 +94,6 @@ def _get_traffic_score (direction_headed, date):
     for intersection_data in traffic_data:
         traffic_score = _get_intersection_traffic_score(intersection_data, direction_headed)
         intersection_scores.append(traffic_score)
-        print(f"Traffic score for intersection {i} is {traffic_score}")
         i += 1
         
     return intersection_scores

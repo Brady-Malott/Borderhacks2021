@@ -6,7 +6,7 @@
 
 :root {
   --body-background: #f4f4f4;
-  --top-offset: 50px; 
+  --top-offset: 50px;
   --shape-color: lime;
 }
 
@@ -149,4 +149,28 @@ body {
   top: 305px;
   left: 312px;
   transform: rotate(-24.2deg);
+}
+
+.interval-1 {
+  background-color: red !important;
+}
+
+.interval-2 {
+  background-color: purple !important;
+}
+
+.interval-3 {
+  background-color: cyan !important;
+}
+
+.interval-4 {
+  background-color: black !important;
+}
+
+.interval-5 {
+  background-color: orange !important;
+}
+
+.interval-6 {
+  background-color: yellowgreen !important;
 }

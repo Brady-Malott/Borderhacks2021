@@ -4,12 +4,15 @@
 <div id="visualizer-container">
   <div id="map-container">
     <img src="../../static/map.png" alt="Map not found" />
-    <div class="traffic-segments" id="to-1"></div>
-    <div class="traffic-segments" id="to-2"></div>
-    <div class="traffic-segments" id="to-3"></div>
-    <div class="traffic-segments" id="from-1"></div>
-    <div class="traffic-segments" id="from-2"></div>
-    <div class="traffic-segments" id="from-3"></div>
+    {% if to_flag %}
+    <div class="traffic-segments {{intervals[0:10]}}" id="to-1"></div>
+    <div class="traffic-segments {{intervals[10:20]}}" id="to-2"></div>
+    <div class="traffic-segments {{intervals[20:30]}}" id="to-3"></div>
+    {% else %}
+    <div class="traffic-segments {{intervals[0:10]}}" id="from-1"></div>
+    <div class="traffic-segments {{intervals[10:20]}}" id="from-2"></div>
+    <div class="traffic-segments {{intervals[20:30]}}" id="from-3"></div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

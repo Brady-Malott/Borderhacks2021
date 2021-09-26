@@ -37,6 +37,7 @@ def form():
 
             # Get the traffic data for the 3 intersections
             session['intersection_scores'] = data._get_traffic_score(direction_headed, travel_date)
+            session['to_flag'] = direction_headed == 'N'
 
             # Redirect to the visualizer view
             return redirect(url_for('visualizer.visualizer'))
