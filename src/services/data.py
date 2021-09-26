@@ -20,8 +20,12 @@ bridge_dir = 'N'
 def traffic_score_calc(vehicle, quantity):
     if vehicle == 'Bicycle':
         return (BICYCLE_SCORE * quantity)
+    if vehicle == 'MotorizedVehicle':
+        return (BICYCLE_SCORE * quantity)        
     elif vehicle == 'Light':
         return (LIGHT_SCORE* quantity)
+    elif vehicle == 'WorkVan':
+        return (LIGHT_SCORE* quantity)        
     elif vehicle == 'SingleUnitTruck':
         return (SINGLE_UNIT_SCORE* quantity)
     elif vehicle == 'Bus':
