@@ -19,22 +19,22 @@ def visualizer():
 
 
 def _get_interval(score):
-    if score < 150:
+    if score < 100:
         return 0
-    elif score < 300:
+    elif score < 200:
         return 9
-    elif score < 450:
+    elif score < 300:
         return 8
-    elif score < 600:
+    elif score < 400:
         return 7
-    elif score < 750:
+    elif score < 500:
         return 6
-    elif score < 900:
+    elif score < 600:
         return 5
-    elif score < 1050:
+    elif score < 700:
         return 4
-    elif score < 1200:
+    elif score < 800:
         return 3
-    elif score < 1350:
+    elif score < 900:
         return 2
     return 1
