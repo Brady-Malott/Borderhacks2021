@@ -56,6 +56,7 @@ body {
 }
 
 #map-container {
+  position: relative;
   border: 1px solid black;
 }
 
@@ -77,4 +78,52 @@ body {
 
 .btn:hover {
   background-color: #eee;
+}
+
+.traffic-segments {
+  position: absolute;
+  background-color: lime;
+  width: 15px;
+}
+
+#to-1 {
+  height: 50px;
+  bottom: 1px;
+  right: 125px;
+  transform: rotate(-22deg);
+}
+
+#to-2 {
+  height: 400px;
+  bottom: 64px;
+  right: 229px;
+  transform: rotate(-24.2deg);
+}
+
+#to-3 {
+  height: 245px;
+  bottom: 457px;
+  right: 372px;
+  transform: rotate(-23deg);
+}
+
+#from-1 {
+  height: 50px;
+  top: 3px;
+  left: 98px;
+  transform: rotate(-25deg);
+}
+
+#from-2 {
+  height: 245px;
+  top: 65px;
+  left: 169px;
+  transform: rotate(-23deg);
+}
+
+#from-3 {
+  height: 400px;
+  top: 305px;
+  left: 312px;
+  transform: rotate(-24.2deg);
 }
